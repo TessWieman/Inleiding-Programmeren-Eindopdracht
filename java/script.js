@@ -41,6 +41,8 @@ const afbeeldingGroeien = [
     "images/pot-met-tulpen.png"
 ]
 
+const audioWater = document.querySelector("#waterGeluid")
+
 //naam zetten in de welkom tekst
 console.log(naamveld)
 
@@ -128,9 +130,11 @@ knoppen[1].addEventListener('click', zaadjesErbij)
 //bloempot met zaadjes veranderd naar volgend plaatje
 function waterGeven() {
     groeiProces.src = "images/watergieter.png"
+    audioWater.play()
 }
 
 knoppen[2].addEventListener('click', waterGeven)
+
 
 //timer (T) op het scherm visible maken
 function visibilityT () {
@@ -162,19 +166,27 @@ function startCounting() {
     }
 }
 
-function stopCounting() {
-    clearInterval(aftrekInterval)
-    timerStatus = false
-    getal = 0
-    getalVeld.textContent = getal + "sec"
-    knoppen[4].disabled = false
-    knoppen[3].disabled = true
-    // aantalOverslaanTimer.textContent = "0 keer timer overslaan"
-    groeiProces.src = "images/pot-met-tulpen.png"
+knoppen[3].addEventListener('click', startCounting)
+
+function stopAudio () {
+    audioWater.pause()
+    audioWater.currentTime = 0 
 }
 
+knoppen[3].addEventListener('click', stopAudio)
+
+// function stopCounting() {
+//     clearInterval(aftrekInterval)
+//     timerStatus = false
+//     getal = 0
+//     getalVeld.textContent = getal + "sec"
+//     knoppen[4].disabled = false
+//     knoppen[3].disabled = true
+//     // aantalOverslaanTimer.textContent = "0 keer timer overslaan"
+//     groeiProces.src = "images/pot-met-tulpen.png"
+// }
+
 // tijdOverslaan.addEventListener('click', stopCounting)
-knoppen[3].addEventListener('click', startCounting)
 
 //Ik wil een plaatje na een paar sec veranderen in een volgend plaatje, zonder dat er op een knop gedrukt hoeft te worden om dit te activeren
 //ChatGPT
@@ -207,6 +219,8 @@ function inDeKast () {
 }
 
 knoppen[4].addEventListener('click', inDeKast)
+
+
 
 //opnieuw knop komt 
 // function opnieuw () {
