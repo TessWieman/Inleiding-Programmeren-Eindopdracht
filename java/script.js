@@ -171,7 +171,7 @@ knoppen[3].addEventListener('click', stopAudio)
 
 //Ik wil een plaatje na een paar sec veranderen in een volgend plaatje, zonder dat er op een knop gedrukt hoeft te worden om dit te activeren
 //ChatGPT
-//prompt: Fix deze code, zodat de array afbeeldingGroeien om de 3 sec van afbeelding veranderd als er op knoppen[3] wordt geklikt.
+//prompt 1: Fix deze code, zodat de array afbeeldingGroeien om de 3 sec van afbeelding veranderd als er op knoppen[3] wordt geklikt.
 //prompt 2: Waarom wilt regel 167 niet eindigen in "images/pot-met-tulpen.png" maar in images/pot-kiemend-1.png?
 let currentIndex = 0
 let intervalId = null
@@ -182,11 +182,12 @@ function groeienPlant() {
             currentIndex++
             if (currentIndex < afbeeldingGroeien.length) {
                 groeiProces.src = afbeeldingGroeien[currentIndex]
-            } else {
-                clearInterval(intervalId)
-                intervalId = null // Reset the intervalId so the process can be restarted if needed
-                // Verander de bron van het plaatje naar het laatste plaatje in de array
-                groeiProces.src = afbeeldingGroeien[afbeeldingGroeien.length - 1]
+            
+            // } else {
+            //     clearInterval(intervalId)
+            //     intervalId = null // Reset the intervalId so the process can be restarted if needed
+            //     // Verander de bron van het plaatje naar het laatste plaatje in de array
+            //     groeiProces.src = afbeeldingGroeien[afbeeldingGroeien.length - 1]
             }
         }, 3000)
     }
@@ -200,39 +201,3 @@ function inDeKast () {
 }
 
 knoppen[4].addEventListener('click', inDeKast)
-
-
-
-//opnieuw knop komt 
-// function opnieuw () {
-//     opdrachtenKnoppen.style.visibility = "hidden"
-//     expBarB.style.visibility = "hidden"
-//     expBarF.style.visibility = "hidden"
-//     timer.style.visibility = "hidden"
-//     // tijdOverslaan.style.visibility = "hidden"
-//     // aantalOverslaanTimer.style.visibility = "hidden"
-//     opnieuwKnop.style.visibility = "visible"
-// }
-
-// knoppen[4].addEventListener('click', opnieuw)
-
-// // opnieuw kunnen gaan
-// function opnieuwGaan () {
-//     opdrachtenKnoppen.style.visibility = "visible"
-//     expBarB.style.visibility = "visible"
-//     expBarF.style.visibility = "visible"
-//     timer.style.visibility = "visible"
-//     // tijdOverslaan.style.visibility = "visible"
-//     // aantalOverslaanTimer.style.visibility = "visible"
-//     opnieuwKnop.style.visibility = "hidden"
-//     startKnop.style.visibility = "visible"
-
-//     expBarB.style.width = 0 
-//     currentExp = 0 
-
-//     groeiProces.src = "images/pot-leeg.png"
-// }
-
-// opnieuwKnop.addEventListener('click', opnieuwGaan)
-// opnieuwKnop.addEventListener('click', verhoogBar)
-// opnieuwKnop.addEventListener('click', disabledKnoppen)
