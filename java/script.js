@@ -45,7 +45,7 @@ const audioWater = document.querySelector("#waterGeluid")
 console.log(naamveld)
 
 function groeten (naam) {
-     naamveld.textContent = naam;
+    naamveld.textContent = naam;
 }
 
 groeten("Tess");
@@ -127,6 +127,7 @@ knoppen[1].addEventListener('click', zaadjesErbij)
 //bloempot met zaadjes veranderd naar volgend plaatje
 function waterGeven() {
     groeiProces.src = "images/watergieter.png"
+    //https://www.w3schools.com/jsref/met_audio_pause.asp
     audioWater.play()
 }
 
@@ -162,6 +163,7 @@ function startCounting() {
 
 knoppen[3].addEventListener('click', startCounting)
 
+//https://www.w3schools.com/jsref/met_audio_pause.asp
 function stopAudio () {
     audioWater.pause()
     audioWater.currentTime = 0 
@@ -182,12 +184,6 @@ function groeienPlant() {
             currentIndex++
             if (currentIndex < afbeeldingGroeien.length) {
                 groeiProces.src = afbeeldingGroeien[currentIndex]
-            
-            // } else {
-            //     clearInterval(intervalId)
-            //     intervalId = null // Reset the intervalId so the process can be restarted if needed
-            //     // Verander de bron van het plaatje naar het laatste plaatje in de array
-            //     groeiProces.src = afbeeldingGroeien[afbeeldingGroeien.length - 1]
             }
         }, 3000)
     }
