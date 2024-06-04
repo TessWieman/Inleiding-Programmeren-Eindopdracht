@@ -17,7 +17,6 @@ let timer = document.querySelector(".tijd")
 
 let getal = 10
 let aftrekInterval 
-let getalVeld = document.querySelector(".tijd")
 let timerStatus = false
 
 //constante
@@ -32,6 +31,8 @@ const knoppen = [
 const startKnop = document.querySelector(".startButton")
 const opdrachtenKnoppen = document.querySelector("#knoppenOpdr")
 const opnieuwKnop = document.querySelector(".opnieuwButton")
+
+const getalVeld = document.querySelector(".tijd")
 
 const afbeeldingGroeien = [
     "images/pot-kiemend-1.png",
