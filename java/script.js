@@ -14,8 +14,6 @@ let groeiProces = document.querySelector("#bloempot")
 let plaatjeGieter = document.querySelector("#watergieter")
 
 let timer = document.querySelector(".tijd")
-// let tijdOverslaan = document.querySelector(".timerOverslaan")
-// let aantalOverslaanTimer = document.querySelector(".aantalOverslaan")
 
 let getal = 10
 let aftrekInterval 
@@ -85,7 +83,6 @@ function verhoogBar () {
         knoppen[2].disabled = true
     }
     if (currentExp == 100) {
-        // aantalOverslaanTimer.textContent = "1"
         knoppen[4].disabled = true
     }
 }
@@ -139,8 +136,6 @@ knoppen[2].addEventListener('click', waterGeven)
 //timer (T) op het scherm visible maken
 function visibilityT () {
     timer.style.visibility = "visible"
-    // tijdOverslaan.style.visibility = "visible"
-    // aantalOverslaanTimer.style.visibility = "visible"
 }
 
 knoppen[3].addEventListener('click', visibilityT)
@@ -155,7 +150,6 @@ function verlaagGetal() {
         knoppen[4].disabled = false
         knoppen[3].disabled = true
         timer.style.visibility = "hidden"
-        // tijdOverslaan.style.visibility = "hidden"
     }   
 }
 
@@ -174,19 +168,6 @@ function stopAudio () {
 }
 
 knoppen[3].addEventListener('click', stopAudio)
-
-// function stopCounting() {
-//     clearInterval(aftrekInterval)
-//     timerStatus = false
-//     getal = 0
-//     getalVeld.textContent = getal + "sec"
-//     knoppen[4].disabled = false
-//     knoppen[3].disabled = true
-//     // aantalOverslaanTimer.textContent = "0 keer timer overslaan"
-//     groeiProces.src = "images/pot-met-tulpen.png"
-// }
-
-// tijdOverslaan.addEventListener('click', stopCounting)
 
 //Ik wil een plaatje na een paar sec veranderen in een volgend plaatje, zonder dat er op een knop gedrukt hoeft te worden om dit te activeren
 //ChatGPT

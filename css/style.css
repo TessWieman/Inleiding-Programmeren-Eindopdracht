@@ -23,7 +23,7 @@ button {
     background-color: pink;
 }
 
-/* elementen zijn hidden      .opnieuwButton, .timerOverslaan, .aantalOverslaan,        */
+/* elementen zijn hidden      .opnieuwButton,        */
 #knoppenOpdr, #myProgress, #myBar, .tijd, #volgendeBloemen{
     visibility: hidden;
 }
@@ -31,21 +31,4 @@ button {
 #bloempot {
     width: 100%;
     height: 100%;
-}
-
-/* #volgendeBloemen img{
-    width: 25%;
-    height: 25%;
-    display: inline-block;
-} */
-
-/* #timer {
-    display: inline-block;
-} */
-
-.aantalOverslaan {
-    background-color: lightblue;
-    color: black;
-    padding: 1em 4em;
-    margin: 0.125em 15em 0.125em 15em;
 }
