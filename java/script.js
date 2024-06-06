@@ -19,6 +19,12 @@ let getal = 10
 let aftrekInterval 
 let timerStatus = false
 
+//ChatGPT
+//prompt 1: Fix deze code, zodat de array afbeeldingGroeien om de 3 sec van afbeelding veranderd als er op knoppen[3] wordt geklikt.
+//prompt 2: Waarom wilt regel 167 niet eindigen in "images/pot-met-tulpen.png" maar in images/pot-kiemend-1.png?
+let currentIndex = 0
+let intervalId = null
+
 //constante
 const knoppen = [
     document.querySelector(".btnAarde"),
@@ -42,14 +48,12 @@ const afbeeldingGroeien = [
 
 const audioWater = document.querySelector("#waterGeluid")
 
+//functies
 //naam zetten in de welkom tekst
-console.log(naamveld)
-
 function groeten (naam) {
     naamveld.textContent = naam;
+    console.log(naamveld)
 }
-
-groeten("Tess");
 
 // array voor alle knoppenOpdr querySelectorAll
 function disabledKnoppen () {
@@ -88,19 +92,6 @@ function verhoogBar () {
     }
 }
 
-// ChatGPT 
-// Prompt: de knoppen zijn standaard met deze code niet disabled wat moet ik veranderen zodat het wel zo is 
-document.addEventListener('DOMContentLoaded', (event) => {
-    disabledKnoppen()
-})
-
-// eigen code weer
-knoppen[0].addEventListener('click', verhoogBar)
-knoppen[1].addEventListener('click', verhoogBar)
-knoppen[2].addEventListener('click', verhoogBar)
-knoppen[3].addEventListener('click', verhoogBar)
-knoppen[4].addEventListener('click', verhoogBar)
-
 // Als er op de start knop gedrukt wordt dan komen de de knoppen het scherm visible
 function zichtbaar() {
     opdrachtenKnoppen.style.visibility = "visible"
@@ -109,21 +100,15 @@ function zichtbaar() {
     startKnop.style.visibility = "hidden"
 }
 
-startKnop.addEventListener('click', zichtbaar)
-
 //bloempot plaatje veranderd naar volgend plaatje
 function aardeErbij () {
     groeiProces.src = "images/pot-met-aarde.png"
 }
 
-knoppen[0].addEventListener('click', aardeErbij)
-
 //bloempot met aarde plaatje veranderd naar volgend plaatje
 function zaadjesErbij () {
     groeiProces.src = "images/pot-met-zaadjes.png"
 }
-
-knoppen[1].addEventListener('click', zaadjesErbij)
 
 //bloempot met zaadjes veranderd naar volgend plaatje
 function waterGeven() {
@@ -132,15 +117,10 @@ function waterGeven() {
     audioWater.play()
 }
 
-knoppen[2].addEventListener('click', waterGeven)
-
-
 //timer (T) op het scherm visible maken
 function visibilityT () {
     timer.style.visibility = "visible"
 }
-
-knoppen[3].addEventListener('click', visibilityT)
 
 // Timer functie 
 function verlaagGetal() {
@@ -162,22 +142,15 @@ function startCounting() {
     }
 }
 
-knoppen[3].addEventListener('click', startCounting)
-
 //https://www.w3schools.com/jsref/met_audio_pause.asp
 function stopAudio () {
     audioWater.pause()
     audioWater.currentTime = 0 
 }
 
-knoppen[3].addEventListener('click', stopAudio)
-
-//Ik wil een plaatje na een paar sec veranderen in een volgend plaatje, zonder dat er op een knop gedrukt hoeft te worden om dit te activeren
 //ChatGPT
 //prompt 1: Fix deze code, zodat de array afbeeldingGroeien om de 3 sec van afbeelding veranderd als er op knoppen[3] wordt geklikt.
 //prompt 2: Waarom wilt regel 167 niet eindigen in "images/pot-met-tulpen.png" maar in images/pot-kiemend-1.png?
-let currentIndex = 0
-let intervalId = null
 
 function groeienPlant() {
     if (intervalId === null) {
@@ -190,11 +163,42 @@ function groeienPlant() {
     }
 }
 
-knoppen[3].addEventListener('click', groeienPlant)
-
 //de tulpen in de kast zetten
 function inDeKast () {
     groeiProces.src = "images/pot-in-de-kast.png"
 }
 
+//Koppelingen met eventListeners 
+// ChatGPT 
+// Prompt: de knoppen zijn standaard met deze code niet disabled wat moet ik veranderen zodat het wel zo is 
+document.addEventListener('DOMContentLoaded', (event) => {
+    disabledKnoppen()
+})
+
+// eigen code weer
+knoppen[0].addEventListener('click', verhoogBar)
+knoppen[1].addEventListener('click', verhoogBar)
+knoppen[2].addEventListener('click', verhoogBar)
+knoppen[3].addEventListener('click', verhoogBar)
+knoppen[4].addEventListener('click', verhoogBar)
+
+startKnop.addEventListener('click', zichtbaar)
+
+knoppen[0].addEventListener('click', aardeErbij)
+
+knoppen[1].addEventListener('click', zaadjesErbij)
+
+knoppen[2].addEventListener('click', waterGeven)
+
+knoppen[3].addEventListener('click', visibilityT)
+
+knoppen[3].addEventListener('click', startCounting)
+
+knoppen[3].addEventListener('click', stopAudio)
+
+knoppen[3].addEventListener('click', groeienPlant)
+
 knoppen[4].addEventListener('click', inDeKast)
+
+//rest
+groeten("Tess");
