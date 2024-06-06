@@ -1,8 +1,8 @@
 console.log("test")
 
+//variable 
 let naamveld = document.querySelector("#naamveld")
 
-//variable 
 let currentExp = 0
 let maxExp = 100
 

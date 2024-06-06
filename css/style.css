@@ -23,7 +23,7 @@ button {
     background-color: pink;
 }
 
-/* elementen zijn hidden      .opnieuwButton,        */
+/* elementen zijn hidden */
 #knoppenOpdr, #myProgress, #myBar, .tijd, #volgendeBloemen{
     visibility: hidden;
 }
